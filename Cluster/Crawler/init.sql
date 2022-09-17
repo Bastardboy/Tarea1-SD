@@ -1,4 +1,4 @@
-CREATE TABLE items(Id INT, Title VARCHAR(100),Description VARCHAR(511) , Keywords VARCHAR(511), URL VARCHAR(100));
+CREATE TABLE Items(Id INT, Title VARCHAR,Description VARCHAR, Keyword VARCHAR, URL VARCHAR);
 INSERT INTO items(id, title, description, keyword, URL) VALUES (36,'NULL','The search engine that helps you find exactly what you re looking for. Find the most relevant information, video, images, and answers from all across the Web.','NULL','https://search.yahoo.com/?fr=local_lyc_syc_rd');
 INSERT INTO items(id, title, description, keyword, URL) VALUES (36,'NULL','Book your Amtrak train and bus tickets today by choosing from over 30 U.S. train routes and 500 destinations in North America.','NULL','https://www.amtrak.com/home.html');
 INSERT INTO items(id, title, description, keyword, URL) VALUES (36,'Style Weekly - Richmond, VA local news, arts, and events.','Style Weekly is your alternative for RVA news, arts, events, restaurant reviews and classifieds.','richmond, virginia, va, rva, events, music, arts, restaurants, news, opinion, classifieds.','https://www.styleweekly.com/');

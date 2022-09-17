@@ -25,7 +25,7 @@ r1.flushall()
 r2.flushall()
 r3.flushall()
 
-redis_global = [r1, r2, r3] #Arreglo que contiene a los 3 redis antriores
+r = [r1, r2, r3] #Arreglo que contiene a los 3 redis antriores
 
 
 class SearchClient(object):
@@ -67,7 +67,7 @@ def search():
         rand = randint(0,2)
         location = "Almacenado en redis"+str(rand+1) 
         print(location)
-        redis_global[rand].set(search, str(data)) #Alguno de los 3 redis
+        r[rand].set(search, str(data)) #Alguno de los 3 redis
         
         return render_template('index.html', datos = data, procedencia = "Datos sacados de PostgreSQL ", redis = location)
     

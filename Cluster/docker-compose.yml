@@ -27,16 +27,17 @@ services:
     restart: always
 
   postgres:
-    image: postgres:latest
+    image: bitnami/postgresql:12.10.0
     container_name: postgres-tarea1
     volumes:
       - ./Crawler/init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_USER: postgres
-      POSTGRES_DB: tarea1
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=tarea1
+      - ALLOW_EMPTY_PASSWORD=yes
 
   redis1:
     image: bitnami/redis:6.0

@@ -25,12 +25,12 @@ class SearchService(pb2_grpc.SearchServicer):
             result['id'] = i[0]
             result['title']= i[1]
             result['description'] = i[2]
-            result['keyword']= i[3]
+            result['keywords']= i[3]
             result['url']= i[4]
             response.append(result)
         
-        print(pb2.SearchResults(product=response))
-        return pb2.SearchResults(product=response)
+        print(pb2.SearchResults(site=response))
+        return pb2.SearchResults(site=response)
 
 def serve():
 
