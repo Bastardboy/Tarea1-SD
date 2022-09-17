@@ -1,0 +1,66 @@
+version: '3.3'
+services:
+  backend:
+    container_name: flask-backend
+    build: ./Backend
+    ports:
+      - '50051:50051'
+    depends_on:
+      - postgres
+      - redis1
+      - redis2
+      - redis3
+    env_file:
+      - .env
+
+  cliente:
+    container_name: flask-cliente
+    build: ./Cliente
+    ports:
+      - '8000:5000'
+    depends_on:
+      - backend
+      - postgres
+      - redis1
+      - redis2
+      - redis3
+    restart: always
+
+  postgres:
+    image: postgres:latest
+    container_name: postgres-tarea1
+    volumes:
+      - ./Crawler/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: tarea1
+
+  redis1:
+    image: bitnami/redis:6.0
+    container_name: redis-tarea1-1
+    ports:
+      - "6379:6379"
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    restart: always
+    
+  redis2:
+    image: bitnami/redis:6.0
+    container_name: redis-tarea1-2
+    ports:
+      - "6380:6379"
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    restart: always
+    
+  redis3:
+    image: bitnami/redis:6.0
+    container_name: redis-tarea1-3
+    ports:
+      - "6381:6379"
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    restart: always
