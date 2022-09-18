@@ -52,7 +52,7 @@ La aplicación tiene una API, que a través del método GET se pueden hacer las 
 ### Query
 Busca el inventario según la coincidencia de la palabra otorgada, busca en Cache y luego en la Base de Datos.
 ```curl
-curl −−location −−request GET http://localhost:8000/search?search=
+curl −−location −−request GET http://localhost:8000/search?search=Value
 ```
 #### 
 - ☄METODO: GET
