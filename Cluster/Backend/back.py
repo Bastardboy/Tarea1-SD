@@ -1,3 +1,7 @@
+#### CÓDIGO USADO COMO REFERENCIA PARA REALIZAR LA TAREA
+## https://github.com/Joacker/Ayu-SD-2022-2/tree/main/Ayu2/python
+###
+
 import grpc
 from concurrent import futures
 import proto_message_pb2 as pb2
@@ -15,10 +19,11 @@ class SearchService(pb2_grpc.SearchServicer):
         response = []
         message = request.message
         result = f'"{message}" '
+        
         cursor.execute("SELECT * FROM items;")
         query_res = cursor.fetchall()
         for row in query_res:
-            if message in row[1]:
+            if message in row[1] or message in row[2] or message in row[3] or message in row[4]:	
                 item.append(row)
         for i in item:
             result = dict()
@@ -40,9 +45,8 @@ def serve():
     server.start()
     server.wait_for_termination()
 
-
+    
 if __name__ == '__main__':
-    sleep(20)
     conn = querys.init_db()
     cursor = conn.cursor()
     serve()
