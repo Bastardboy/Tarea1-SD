@@ -73,3 +73,5 @@ curl −−location −−request GET http://localhost:8000/search?search=Value
     ]
 }
 ```
+## 📹 Video Demostrativo
+[![Alt text](https://imgur.com/a/bRFEuoe)](https://youtu.be/h09TIF2YaNk)
